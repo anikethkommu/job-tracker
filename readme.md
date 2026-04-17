@@ -61,8 +61,7 @@ job-tracker/
 
 ## 📸 Screenshots
 
-> *(Add screenshots of your app here after uploading to GitHub)*  
-> Tip: Press `Win + Shift + S` on Windows or `Cmd + Shift + 4` on Mac to take a screenshot.
+
 
 ---
 
@@ -79,7 +78,7 @@ job-tracker/
 ## 👨‍💻 Author
 
 **Your Name**  
-[GitHub](https://github.com/yourusername) • [LinkedIn](https://linkedin.com/in/yourusername)
+- GitHub: [@anikethkommu](https://github.com/anikethkommu)
 
 ---
 
