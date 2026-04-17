@@ -1,0 +1,487 @@
+/* ─────────────────────────────────────────────
+   JobTrackr — style.css
+   Fonts: Syne (headings) + DM Sans (body)
+───────────────────────────────────────────── */
+
+/* ── CSS Variables (theme colours) ── */
+:root {
+  --bg:        #f8fafc;
+  --surface:   #ffffff;
+  --border:    #e2e8f0;
+  --text:      #0f172a;
+  --muted:     #64748b;
+  --primary:   #6366f1;      /* indigo */
+  --primary-h: #4f46e5;
+  --radius:    12px;
+  --shadow:    0 2px 12px rgba(0,0,0,0.07);
+  --shadow-lg: 0 8px 30px rgba(0,0,0,0.10);
+}
+
+/* ── Reset & Base ── */
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: 'DM Sans', sans-serif;
+  background: var(--bg);
+  color: var(--text);
+  min-height: 100vh;
+  line-height: 1.6;
+}
+
+/* ─────────────────────────────────────────────
+   HEADER
+───────────────────────────────────────────── */
+header {
+  background: linear-gradient(135deg, #6366f1 0%, #8b5cf6 100%);
+  color: white;
+  padding: 40px 20px 36px;
+  text-align: center;
+}
+
+.header-inner {
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  font-family: 'Syne', sans-serif;
+  font-size: 2rem;
+  font-weight: 800;
+  letter-spacing: -0.5px;
+}
+
+.logo-icon {
+  font-size: 1.8rem;
+}
+
+.tagline {
+  margin-top: 6px;
+  font-size: 0.95rem;
+  opacity: 0.85;
+}
+
+/* ─────────────────────────────────────────────
+   SHARED LAYOUT
+───────────────────────────────────────────── */
+.stats-section,
+.form-section,
+.list-section {
+  max-width: 980px;
+  margin: 0 auto;
+  padding: 30px 20px;
+}
+
+.section-title {
+  font-family: 'Syne', sans-serif;
+  font-size: 1.2rem;
+  font-weight: 600;
+  color: var(--text);
+  margin-bottom: 16px;
+}
+
+/* ─────────────────────────────────────────────
+   STATS DASHBOARD
+───────────────────────────────────────────── */
+.stats-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(130px, 1fr));
+  gap: 14px;
+}
+
+.stat-card {
+  background: var(--surface);
+  border-radius: var(--radius);
+  padding: 20px 16px;
+  text-align: center;
+  box-shadow: var(--shadow);
+  border-top: 4px solid var(--accent, var(--primary));
+  transition: transform 0.2s;
+}
+
+.stat-card:hover {
+  transform: translateY(-3px);
+}
+
+.stat-number {
+  display: block;
+  font-family: 'Syne', sans-serif;
+  font-size: 2rem;
+  font-weight: 800;
+  color: var(--accent, var(--primary));
+  line-height: 1.1;
+}
+
+.stat-label {
+  display: block;
+  font-size: 0.8rem;
+  color: var(--muted);
+  margin-top: 4px;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+/* ─────────────────────────────────────────────
+   FORM
+───────────────────────────────────────────── */
+.form-card {
+  background: var(--surface);
+  border-radius: var(--radius);
+  padding: 28px;
+  box-shadow: var(--shadow);
+  border: 1px solid var(--border);
+}
+
+.form-row {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 14px;
+  margin-bottom: 14px;
+}
+
+/* ── Input & Label groups ── */
+.input-group {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.input-group.full-width {
+  grid-column: 1 / -1;   /* spans all columns */
+}
+
+.input-group label {
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: var(--muted);
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+}
+
+input[type="text"],
+input[type="date"],
+select,
+textarea {
+  padding: 10px 14px;
+  border: 1.5px solid var(--border);
+  border-radius: 8px;
+  font-family: 'DM Sans', sans-serif;
+  font-size: 0.95rem;
+  color: var(--text);
+  background: var(--bg);
+  outline: none;
+  transition: border-color 0.2s, box-shadow 0.2s;
+  width: 100%;
+}
+
+input:focus,
+select:focus,
+textarea:focus {
+  border-color: var(--primary);
+  box-shadow: 0 0 0 3px rgba(99,102,241,0.15);
+}
+
+textarea {
+  resize: vertical;
+  min-height: 70px;
+}
+
+/* ── Add Button ── */
+#addBtn {
+  display: block;
+  margin-top: 18px;
+  padding: 12px 28px;
+  background: var(--primary);
+  color: white;
+  border: none;
+  border-radius: 8px;
+  font-family: 'DM Sans', sans-serif;
+  font-size: 0.95rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.2s, transform 0.15s;
+}
+
+#addBtn:hover {
+  background: var(--primary-h);
+  transform: translateY(-1px);
+}
+
+#addBtn:active {
+  transform: translateY(0);
+}
+
+/* ─────────────────────────────────────────────
+   LIST CONTROLS (search + filters)
+───────────────────────────────────────────── */
+.list-header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-bottom: 20px;
+}
+
+.controls {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.controls input,
+.controls select {
+  min-width: 160px;
+  padding: 9px 12px;
+}
+
+/* ─────────────────────────────────────────────
+   JOB CARDS
+───────────────────────────────────────────── */
+.job-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 16px;
+}
+
+.job-card {
+  background: var(--surface);
+  border-radius: var(--radius);
+  padding: 20px;
+  box-shadow: var(--shadow);
+  border: 1px solid var(--border);
+  border-left: 5px solid var(--primary);   /* overridden by JS per status */
+  transition: box-shadow 0.2s, transform 0.2s;
+}
+
+.job-card:hover {
+  box-shadow: var(--shadow-lg);
+  transform: translateY(-2px);
+}
+
+.card-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 10px;
+  margin-bottom: 12px;
+}
+
+.card-company {
+  font-family: 'Syne', sans-serif;
+  font-size: 1.05rem;
+  font-weight: 700;
+  color: var(--text);
+}
+
+.card-role {
+  font-size: 0.88rem;
+  color: var(--muted);
+  margin-top: 2px;
+}
+
+/* Status badge pill */
+.status-badge {
+  padding: 4px 10px;
+  border-radius: 99px;
+  font-size: 0.75rem;
+  font-weight: 600;
+  white-space: nowrap;
+}
+
+.card-meta {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  font-size: 0.82rem;
+  color: var(--muted);
+  margin-bottom: 16px;
+}
+
+.card-notes {
+  /* truncate long notes with ellipsis */
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  max-width: 100%;
+}
+
+/* Edit / Delete buttons */
+.card-actions {
+  display: flex;
+  gap: 8px;
+}
+
+.btn-edit,
+.btn-delete {
+  flex: 1;
+  padding: 7px 0;
+  border: none;
+  border-radius: 6px;
+  font-family: 'DM Sans', sans-serif;
+  font-size: 0.82rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: opacity 0.2s, transform 0.15s;
+}
+
+.btn-edit {
+  background: #eef2ff;
+  color: var(--primary);
+}
+
+.btn-delete {
+  background: #fef2f2;
+  color: #ef4444;
+}
+
+.btn-edit:hover,
+.btn-delete:hover {
+  opacity: 0.8;
+  transform: scale(0.97);
+}
+
+/* ─────────────────────────────────────────────
+   EMPTY STATE
+───────────────────────────────────────────── */
+.empty-msg {
+  text-align: center;
+  color: var(--muted);
+  padding: 50px 20px;
+  font-size: 1rem;
+}
+
+/* ─────────────────────────────────────────────
+   EDIT MODAL
+───────────────────────────────────────────── */
+.modal-overlay {
+  position: fixed;
+  inset: 0;                        /* covers the whole screen */
+  background: rgba(0,0,0,0.45);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 100;
+  padding: 20px;
+}
+
+.modal-card {
+  background: var(--surface);
+  border-radius: var(--radius);
+  padding: 32px;
+  width: 100%;
+  max-width: 480px;
+  box-shadow: var(--shadow-lg);
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.modal-card h3 {
+  font-family: 'Syne', sans-serif;
+  font-size: 1.2rem;
+  font-weight: 700;
+}
+
+.modal-actions {
+  display: flex;
+  gap: 10px;
+  margin-top: 6px;
+}
+
+.btn-save {
+  flex: 1;
+  padding: 11px;
+  background: var(--primary);
+  color: white;
+  border: none;
+  border-radius: 8px;
+  font-family: 'DM Sans', sans-serif;
+  font-weight: 600;
+  font-size: 0.95rem;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+.btn-save:hover { background: var(--primary-h); }
+
+.btn-cancel {
+  flex: 1;
+  padding: 11px;
+  background: var(--bg);
+  color: var(--muted);
+  border: 1.5px solid var(--border);
+  border-radius: 8px;
+  font-family: 'DM Sans', sans-serif;
+  font-weight: 600;
+  font-size: 0.95rem;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+.btn-cancel:hover { background: var(--border); }
+
+/* ─────────────────────────────────────────────
+   TOAST NOTIFICATION
+───────────────────────────────────────────── */
+.toast {
+  position: fixed;
+  bottom: 28px;
+  left: 50%;
+  transform: translateX(-50%) translateY(20px);
+  background: #1e293b;
+  color: white;
+  padding: 12px 24px;
+  border-radius: 99px;
+  font-size: 0.9rem;
+  font-weight: 500;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.3s, transform 0.3s;
+  z-index: 200;
+  white-space: nowrap;
+}
+
+.toast.show {
+  opacity: 1;
+  transform: translateX(-50%) translateY(0);
+}
+
+.toast-success { background: #166534; }
+.toast-error   { background: #991b1b; }
+.toast-info    { background: #1e293b; }
+
+/* ─────────────────────────────────────────────
+   RESPONSIVE — phones
+───────────────────────────────────────────── */
+@media (max-width: 600px) {
+  .list-header {
+    flex-direction: column;
+  }
+
+  .controls {
+    width: 100%;
+  }
+
+  .controls input,
+  .controls select {
+    flex: 1;
+    min-width: 0;
+  }
+
+  .form-row {
+    grid-template-columns: 1fr;
+  }
+
+  .logo {
+    font-size: 1.6rem;
+  }
+}
